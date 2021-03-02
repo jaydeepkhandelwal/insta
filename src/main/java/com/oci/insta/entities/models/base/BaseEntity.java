@@ -48,10 +48,10 @@ public class BaseEntity {
         this.lastUpdatedOn = new Date();
         this.createdOn = new Date();
         if (this.createdBy == null) {
-            if (SecurityContextHolder.getContext().getAuthentication() != null)
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
                 this.createdBy = SecurityContextHolder.getContext().getAuthentication().getName();
-            else
-                this.createdBy = "admin";
+            }
+
         }
         this.lastUpdatedBy = this.createdBy;
         this.deleted = Boolean.FALSE;
