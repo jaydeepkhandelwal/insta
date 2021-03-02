@@ -1,6 +1,6 @@
-**Insta APP**
+### **Insta**
 
-The objective of this project is to develop a Media Sharing Service with following features - 
+The objective of this project is to develop a media sharing Service with following features - 
 
 * Signup of users
 * Log in/out
@@ -11,37 +11,105 @@ The objective of this project is to develop a Media Sharing Service with followi
 
 
 
-Tech Stack -
+
+
+**Tech Stack -**
 
 Following tech choices were made during development of this project -
-1) JWT Token for user auth. 
-2) Redis as cache to store User Tokens.
-3) MySQL as db to store User, Media path, Review data.
-4) Currently, LocalFileStorage is being use to store media for demo purpose which can be replaced 
-   with other Object storage services such as S3, OCI storage services for production usage.
-5) UUID is being used for communication through rest apis instead of incremental DB ids. 
-   This has been done to avoid security risk of exposing userIds because.
+
+1) JWT Token is used for authentication. Each token will have expiry time 
+   so that token can't be misused.
+   
+
+2) Redis is being used as cache for storing token and otp. It's used to keep latency minimum 
+   for token validation as each api call will have token validation.
+   
+
+3) MySQL as db to store User, Media path, Review data. 
+   
+
+4) Currently, LocalFileStorage is being used to store media for demo purpose which can be replaced 
+   with other Object storage services such as S3, OCI storage services in production.
+ 
+
+5) In auth apis, UUID is being used (instead of incremental DB ids) for communication through rest apis. 
+   This has been done to avoid security risk of exposing one person's id to another.
    Ref - https://wiki.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References
 
 
-APIS - 
+Entities -
 
-1) Register User 
+Cache Entites - 
 
-curl -X POST "http://localhost:8090/insta/api/v1/auth/signup" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"email\": \"jaydeepkhandelwal@gmail.com\", \"name\": \"jaydeep\", \"password\": \"jaydeep\", \"phone_number\": \"9916219263\"}"
+1) Otp Cache -
+   
+   Key - PhoneNumber -
+   
+   Value - 
+
+     {
+   
+         private Integer otp;
+      
+         private Date issuedAt;
+      
+         Date expiresAt;
+   
+      }
+  
+   
+2) Token Cache
+
+
+Key - JwtToken 
+
+
+Value - 
+
+   {
+   
+      private String token;
+   
+      private Long id;
+   
+      private List<Pair<Long,String>> roles;
+   
+      private Date issuedAt;
+   
+      private Date expiresAt;
+   
+   }
+
+### **APIS** -
+
+**1) Register User** 
+
+
+`curl -X POST "http://localhost:8090/insta/api/v1/auth/signup" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"email\": \"jaydeepkhandelwal@gmail.com\", \"name\": \"jaydeep\", \"password\": \"jaydeep\", \"phone_number\": \"9916219263\"}"
+`
 
 Response -
+
+
 {
-"ext_id": "a7d299bf-a465-491b-97d2-5fa649b30d1b"
+
+      "ext_id": "a7d299bf-a465-491b-97d2-5fa649b30d1b"
 }
 
-2) SignIn 
+
+**2) SignIn using userName & password**
 
 curl -X POST "http://localhost:8090/insta/api/v1/auth/login" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"otp\": 0, \"password\": \"jaydeep\", \"phone_number\": \"string\", \"username\": \"jaydeep\"}"
 
 Response-
+
+
 {
-"ext_id": "a7d299bf-a465-491b-97d2-5fa649b30d1b"
+
+
+   "ext_id": "a7d299bf-a465-491b-97d2-5fa649b30d1b"
+
+
 }
 
 Response Header - 
@@ -57,10 +125,85 @@ x-frame-options: DENY
 x-user-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5MzExMywiZXhwIjoxNjE0NzExMTEzfQ.INoRL5t6Ex0ZiQAJD2OQrhjMwu1d2Hxxh1cvJk9Gwtc
 x-xss-protection: 1; mode=block
 
-3) Upload Image - 
+
+**3) Register Using Otp (Generate OTP)-**
+
+curl -X GET "http://localhost:8090/insta/api/v1/auth/otp/9916219262" -H "accept: */*"
+
+Response - 
+
+Sends OTP as a SMS to mobile. Currenly, SMS Sender is mocked.
+
+
+**4) Signin Using Otp -**
+
+curl -X POST "http://localhost:8090/insta/api/v1/auth/login" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"otp\": 416155, \"phone_number\": \"9916219262\"}"
+
+
+Response Body - 
+
+{
+"ext_id": "dfd22026-4b5f-4a34-bd62-f1dcb976199e"
+}
+
+
+Response Header - 
+
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+content-type: application/json;charset=UTF-8
+date: Tue, 02 Mar 2021 15:55:26 GMT
+expires: 0
+pragma: no-cache
+transfer-encoding: chunked
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-user-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYW5vbnltb3VzVXNlciIsImlhdCI6MTYxNDcwMDUyNiwiZXhwIjoxNjE0NzE4NTI2fQ.b5jJu2eGT-DMEUxgQ8gBv6cQysa4g7ohHn_T3TyiBDE
+x-xss-protection: 1; mode=block
+
+
+**5) Upload Image -** 
 
 curl -X POST "http://localhost:8090/insta/api/v1/media/upload" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY4NzI2NiwiZXhwIjoxNjE0NzA1MjY2fQ.aVJmALM6uLvQUAEdp1Bt6izdkqR-gm8-3-KBttmXbGg " -H "Content-Type: multipart/form-data" -F "file=@Screenshot 2021-01-23 at 12.11.27 AM.png;type=image/png"
 
+Response - 
 {
-"ext_id": "215ca9bb-808c-4c91-b7e7-0f16c6bc6e19"
+"id": 1
 }
+
+
+**6) Delete Media** 
+
+curl -X DELETE "http://localhost:8090/insta/api/v1/media/4?attributes=%7B%7D&credentialsNonExpired=true&enabled=false" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo"
+
+Response body
+
+{
+"status": true
+}
+
+**7) Submit Review** 
+
+curl -X POST "http://localhost:8090/insta/api/v1/review/?attributes=%7B%7D" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo" -H "Content-Type: application/json" -d "{ \"location\": { \"lat\": 12.14, \"lng\": 13.56 }, \"media_id\": 6, \"review\": \"Good\", \"score\": 1}"
+
+Response Body -
+
+{
+"id": 1
+}
+
+#### **Error Flows -**
+
+1) 401 (Unauthorized) will be thrown if any api call (except signup/signin/otp) happens with invalid token
+
+
+2) 400 (Bad Request) will be thrown if user is trying to submit review on his on photos with below message - 
+
+`user is trying to review his own photo
+`
+
+3)  400 (Bad Request) will be thrown if user is trying to delete the media which doesn't belong to him.
+
+
+##### **Future Scope -**
+
+

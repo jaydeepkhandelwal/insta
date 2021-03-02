@@ -6,8 +6,8 @@ com/oci/insta/exception/OAuth2AuthenticationProcessingException.java
  com.oci.insta.exception.OAuth2AuthenticationProcessingException
 com/oci/insta/service/ReviewService.java
  com.oci.insta.service.ReviewService
-com/oci/insta/controller/UserController.java
- com.oci.insta.controller.UserController
+com/oci/insta/downstream/SmsSender.java
+ com.oci.insta.downstream.SmsSender
 com/oci/insta/constants/EnumConstants.java
  com.oci.insta.constants.EnumConstants
  com.oci.insta.constants.EnumConstants$MediaType
@@ -102,17 +102,19 @@ com/oci/insta/repository/UserRepository.java
  com.oci.insta.repository.UserRepository
 com/oci/insta/security/InstaUserDetails.java
  com.oci.insta.security.InstaUserDetails
-com/oci/insta/controller/AuthController.java
- com.oci.insta.controller.AuthController
+com/oci/insta/entities/dto/OtpResponse.java
+ com.oci.insta.entities.dto.OtpResponse
 com/oci/insta/entities/models/User.java
  com.oci.insta.entities.models.User
 com/oci/insta/entities/models/Media.java
  com.oci.insta.entities.models.Media
 com/oci/insta/config/OtpConfig.java
  com.oci.insta.config.OtpConfig
-com/oci/insta/downstream/SmsSender.java
- com.oci.insta.downstream.SmsSender
-com/oci/insta/service/UserService.java
- com.oci.insta.service.UserService
-com/oci/insta/service/OtpService.java
- com.oci.insta.service.OtpService
+com/oci/insta/controller/AuthController.java
+ com.oci.insta.controller.AuthController
+com/oci/insta/controller/UserController.java
+ com.oci.insta.controller.UserController
+com/oci/insta/service/AuthService.java
+ com.oci.insta.service.AuthService
+com/oci/insta/filter/ExceptionFilter.java
+ com.oci.insta.filter.ExceptionFilter
