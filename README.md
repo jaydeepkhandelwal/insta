@@ -41,6 +41,13 @@ Following tech choices were made during development of this project -
    serve use-case like showing average reviews etc. This pipeline can consume review events and push the aggregated results in ES.
 
 
+7) Swagger has been used for api docs. Here's the link -
+   http://localhost:8090/swagger-ui.html#
+   
+
+   ![Alt text](src/main/resources/swagger.png?raw=true "Title")
+
+
 **Entities** -
 
 Cache Entites - 
