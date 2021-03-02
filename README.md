@@ -37,7 +37,7 @@ Following tech choices were made during development of this project -
    Ref - https://wiki.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References
 
 
-6) Kafka is used to send event e.g Review Event so that aggregation pipeline can be written to
+6) Kafka has used to send event e.g Review Event so that aggregation pipeline can be written to
    serve use-case like showing average reviews etc. This pipeline can consume review events and push the aggregated results in ES.
 
 
@@ -45,11 +45,12 @@ Following tech choices were made during development of this project -
 
 Cache Entites - 
 
-1) Otp Cache -
+1) Otp Cache - 
    
-   Key - PhoneNumber -
    
-   Value - 
+      Key - PhoneNumber -
+
+      Value - 
 
      {
    
@@ -65,12 +66,9 @@ Cache Entites -
 2) Token Cache
 
 
-Key - JwtToken 
+    Key - JwtToken 
 
-
-Value - 
-
-   {
+    Value - {
    
       private String token;
    
@@ -80,9 +78,11 @@ Value -
    
       private Date issuedAt;
    
-      private Date expiresAt;
-   
-   }
+      private Date expiresAt;   
+    }
+
+
+
 
 ### **APIS** -
 
