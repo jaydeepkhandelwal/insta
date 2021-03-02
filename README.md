@@ -37,7 +37,11 @@ Following tech choices were made during development of this project -
    Ref - https://wiki.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References
 
 
-Entities -
+6) Kafka is used to send event e.g Review Event so that aggregation pipeline can be written to
+   serve use-case like showing average reviews etc. This pipeline can consume review events and push the aggregated results in ES.
+
+
+**Entities** -
 
 Cache Entites - 
 
@@ -203,7 +207,26 @@ Response Body -
 
 3)  400 (Bad Request) will be thrown if user is trying to delete the media which doesn't belong to him.
 
+#### **Future Scope -**
 
-##### **Future Scope -**
+1) In order to serve use-case like showing average reviews etc, an aggregation pipeline can be built. 
+   It can run on top of spark and consume review events from Kafka and can save aggregated results in data store.
+   
 
+2) In order to support huge scale of videos, we can follow below strategies -
+   
+
+      a) Compression of videos
+   
+      b) Storing videos on regional CDNs so that network latency can be minimum.
+   
+      c) We can even provide cache hardware to ISP so that videos can be cached at ISP level. This strategy is used by Netflix.
+      
+
+3) To build internal reporting, we can build a CDC pipeline service which can read binlogs from DB. These binlogs can be parsed and pushed in Kafka.
+Later, from Kafka, this data can be pushed to data warehouse for reporting.
+   
+4) In order to build external reporting for external users, data can be pushed to Elastic Search which can power our external reporting.
+ES supports many types of filters, aggregation out of box with very minimum latency.
+   
 
