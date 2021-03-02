@@ -1,9 +1,6 @@
 
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-:
-
-create.sql,c/4/c4e543c554b99ccccd987f50a97bdc2adf2ccccf
 e
 5src/main/java/com/oci/insta/downstream/SmsSender.java,a/3/a38a01592b9d87606c97e745b7b765b9c9e56509
 a
@@ -86,8 +83,6 @@ f
 6src/main/java/com/oci/insta/entities/dto/MediaDto.java,1/b/1bb4f3324c179239259bc81e844c05e0bb39e034
 a
 1src/main/java/com/oci/insta/InstaApplication.java,f/3/f339ae91da6575d106051b6d85906a82f0c0c132
-g
-7src/main/java/com/oci/insta/security/MyUserDetails.java,e/4/e4c5544bf486d3fbae722d2558e7927d983b6b8a
 j
 :src/main/java/com/oci/insta/controller/AuthController.java,5/6/56e3ff4f37bc988d71752dfa3d31aa867252f732
 e

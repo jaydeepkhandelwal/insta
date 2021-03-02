@@ -33,15 +33,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            clientId: 469473040760-phk9fg9mgnn15tgsk60iu2pdi2s1i25q.apps.googleusercontent.com
-            clientSecret: deWTlm05zU29lRmhDM5O5CYq
-            redirect-uri: http://localhost:8090/oauth2/callback/google
-            scope: email,profile
+
 config:
   redisConfig:
     host: redis://127.0.0.1
@@ -50,8 +42,6 @@ config:
     testOnBorrow: true
     maxTotal: 10
   otpConfig:
-    authenticationKey: xxxx
-    sender: xxxx
     otpExpiryMs: 300000
   fileStorage:
     dirPath: /tmp/upload/
@@ -73,9 +63,3 @@ logging:
 
 server:
   port: 8090
-app:
-  oauth2:
-    # After successfully authenticating with the OAuth2 Provider,
-    # we'll be generating an auth token for the user and sending the token to the
-    # redirectUri mentioned by the client in the /oauth2/authorize request.
-    authorizedRedirectUris: http://localhost:8090/auth/redirect

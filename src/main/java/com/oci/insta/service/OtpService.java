@@ -40,7 +40,7 @@ public class OtpService {
         Integer otp = GeneralUtils.generateOtp();
 
         log.info("Generated otp: "+otp);
-        boolean response = smsSender.send(otpConfig.getAuthenticationKey(),phoneNumber,otp,otpConfig.getOtpExpiryMs(),6,otpConfig.getSender());
+        boolean response = smsSender.send(phoneNumber,otp);
         if(response) {
             OtpCacheObject cacheObject = OtpCacheObject.builder().otp(otp).issuedAt(new Date(System.currentTimeMillis())).
                     expiresAt(new Date(System.currentTimeMillis() + otpConfig.getOtpExpiryMs())).build();

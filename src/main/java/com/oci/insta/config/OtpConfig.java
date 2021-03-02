@@ -12,7 +12,5 @@ import org.springframework.context.annotation.Configuration;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OtpConfig {
-    private String authenticationKey;
-    private String sender;
     private int otpExpiryMs;
 }

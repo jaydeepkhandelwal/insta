@@ -16,13 +16,8 @@ import java.util.Map;
 public class SmsSender {
 
 
-
-    public boolean send(String authKey,
-                        String phoneNumber,
-                        Integer otp,
-                        Integer otpExpiryMs,
-                        Integer otpLen,
-                        String senderId)  {
+    public boolean send(String phoneNumber,
+                        Integer otp)  {
       return true;
     }
 }
