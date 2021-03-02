@@ -127,14 +127,25 @@ Response-
 Response Header - 
 
 cache-control: no-cache, no-store, max-age=0, must-revalidate
+
 content-type: application/json;charset=UTF-8
+
 date: Tue, 02 Mar 2021 13:51:53 GMT
+
 expires: 0
+
 pragma: no-cache
+
 transfer-encoding: chunked
+
 x-content-type-options: nosniff
+
 x-frame-options: DENY
-x-user-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5MzExMywiZXhwIjoxNjE0NzExMTEzfQ.INoRL5t6Ex0ZiQAJD2OQrhjMwu1d2Hxxh1cvJk9Gwtc
+
+//JWT Token
+
+**x-user-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5MzExMywiZXhwIjoxNjE0NzExMTEzfQ.INoRL5t6Ex0ZiQAJD2OQrhjMwu1d2Hxxh1cvJk9Gwtc**
+
 x-xss-protection: 1; mode=block
 
 
