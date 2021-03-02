@@ -240,5 +240,12 @@ ES supports many types of filters, aggregation out of box with very minimum late
    
    
 5) Integration and Unit test cases can be added in order to make the application robust.
+
+
+6) This application can be extended easily to provide support for external authentication like Google/FB.
+   We just need to write specific handlers and plug-in those in CustomWebSecurityConfigurerAdapter class.
+   
+
+7) Locale support can be added for error messages to show the messages in regional languages.
    
 
