@@ -41,7 +41,7 @@ Following tech choices were made during development of this project -
    serve use-case like showing average reviews etc. This pipeline can consume review events and push the aggregated results in ES.
 
 
-7) Swagger has been used for api docs. Here's the link -
+7) Swagger has been used for api docs. This can be accessed by below link after starting booting up application on local -
    http://localhost:8090/swagger-ui.html#
    
 
@@ -229,6 +229,7 @@ Response Body -
       b) Storing videos on regional CDNs so that network latency can be minimum.
    
       c) We can even provide cache hardware to ISP so that videos can be cached at ISP level. This strategy is used by Netflix.
+      Ref - https://openconnect.netflix.com/en_gb/
       
 
 3) To build internal reporting, we can build a CDC pipeline service which can read binlogs from DB. These binlogs can be parsed and pushed in Kafka.
@@ -236,5 +237,8 @@ Later, from Kafka, this data can be pushed to data warehouse for reporting.
    
 4) In order to build external reporting for external users, data can be pushed to Elastic Search which can power our external reporting.
 ES supports many types of filters, aggregation out of box with very minimum latency.
+   
+   
+5) Integration and Unit test cases can be added in order to make the application robust.
    
 
