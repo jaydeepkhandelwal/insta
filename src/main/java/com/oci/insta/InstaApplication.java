@@ -8,12 +8,14 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration(value = "com.oci.insta")
 @ComponentScan(value = "com.oci.insta")
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class},scanBasePackages = "com.oci.insta")
 @EnableAutoConfiguration
+@EnableKafka
 public class InstaApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(InstaApplication.class, args);

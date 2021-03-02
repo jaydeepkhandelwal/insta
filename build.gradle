@@ -57,6 +57,8 @@ dependencies {
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     compile 'org.javatuples:javatuples:1.2'
+    compile "org.springframework.kafka:spring-kafka"
+
 
 
 }

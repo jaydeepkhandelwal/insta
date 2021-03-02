@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 
 @RestController
 @RequestMapping("insta/api/v1/review")
@@ -26,7 +28,7 @@ public class ReviewController {
 
     @PostMapping("/")
     public ReviewDto postReview(@CurrentUser InstaUserDetails userDetails,
-                                @RequestBody ReviewDto reviewDto) throws InstaException {
+                                @RequestBody ReviewDto reviewDto) throws InstaException, IOException, InterruptedException {
 
         Review reviewCreated =  reviewService.postReview(userDetails.getId(), new Review(reviewDto));
         return new ReviewDto().setId(reviewCreated.getId());

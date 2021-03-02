@@ -28,6 +28,8 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "media_id")
     private Media media;
 
+    @Column(name = "score")
+    private Integer score;
 
     public Review(ReviewDto reviewDto) {
         if(reviewDto == null) {
@@ -37,6 +39,7 @@ public class Review extends BaseEntity {
         Media media = new Media();
         media.setId(reviewDto.getMediaId());
         this.media = media;
+        this.score = reviewDto.getScore();
 
 
     }
