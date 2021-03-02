@@ -185,7 +185,7 @@ Response -
 
 **6) Delete Media** 
 
-curl -X DELETE "http://localhost:8090/insta/api/v1/media/4?attributes=%7B%7D&credentialsNonExpired=true&enabled=false" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo"
+curl -X DELETE "http://localhost:8090/insta/api/v1/media/4" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo"
 
 Response body
 
@@ -195,7 +195,7 @@ Response body
 
 **7) Submit Review** 
 
-curl -X POST "http://localhost:8090/insta/api/v1/review/?attributes=%7B%7D" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo" -H "Content-Type: application/json" -d "{ \"location\": { \"lat\": 12.14, \"lng\": 13.56 }, \"media_id\": 6, \"review\": \"Good\", \"score\": 1}"
+curl -X POST "http://localhost:8090/insta/api/v1/review" -H "accept: */*" -H "X-USER-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiamF5ZGVlcCIsImlhdCI6MTYxNDY5Njg2NywiZXhwIjoxNjE0NzE0ODY3fQ.UI8ynsdU0bVdibsbNMISUjsXbJNEbtixasUbGuq_-wo" -H "Content-Type: application/json" -d "{ \"location\": { \"lat\": 12.14, \"lng\": 13.56 }, \"media_id\": 6, \"review\": \"Good\", \"score\": 1}"
 
 Response Body -
 
