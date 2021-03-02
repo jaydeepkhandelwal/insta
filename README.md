@@ -108,6 +108,7 @@ Response -
 }
 
 
+
 **2) SignIn using userName & password**
 
 curl -X POST "http://localhost:8090/insta/api/v1/auth/login" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"otp\": 0, \"password\": \"jaydeep\", \"phone_number\": \"string\", \"username\": \"jaydeep\"}"

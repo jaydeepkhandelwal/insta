@@ -1,15 +1,20 @@
 buildscript {
     ext {
         springBootVersion = '2.1.3.RELEASE'
-        //openFeignVersion = '10.3.0'
+        javaMainClass = "com.oci.insta.InstaApplication"
+
     }
     repositories {
         mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
+
 
 plugins {
     id 'java'

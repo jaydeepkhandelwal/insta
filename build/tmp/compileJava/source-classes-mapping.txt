@@ -34,13 +34,13 @@ com/oci/insta/entities/dto/JwtAuthenticationResponse.java
  com.oci.insta.entities.dto.JwtAuthenticationResponse$JwtAuthenticationResponseBuilder
 com/oci/insta/entities/models/Media.java
  com.oci.insta.entities.models.Media
-com/oci/insta/entities/common/LatLong.java
- com.oci.insta.entities.common.LatLong
+com/oci/insta/controller/ReviewController.java
+ com.oci.insta.controller.ReviewController
 com/oci/insta/entities/dto/LoginRequest.java
  com.oci.insta.entities.dto.LoginRequest
  com.oci.insta.entities.dto.LoginRequest$LoginRequestBuilder
-com/oci/insta/entities/event/BaseEvent.java
- com.oci.insta.entities.event.BaseEvent
+com/oci/insta/event/BaseKafkaProducer.java
+ com.oci.insta.event.BaseKafkaProducer
 com/oci/insta/storage/VideoStorage.java
  com.oci.insta.storage.VideoStorage
 com/oci/insta/service/MediaService.java
@@ -112,17 +112,17 @@ com/oci/insta/cache/UserTokenCache.java
  com.oci.insta.cache.UserTokenCache
 com/oci/insta/cache/OtpCache.java
  com.oci.insta.cache.OtpCache
-com/oci/insta/cache/RedisClient.java
- com.oci.insta.cache.RedisClient
+com/oci/insta/service/ReviewService.java
+ com.oci.insta.service.ReviewService
 com/oci/insta/controller/UserController.java
  com.oci.insta.controller.UserController
 com/oci/insta/entities/dto/MediaDto.java
  com.oci.insta.entities.dto.MediaDto
-com/oci/insta/event/BaseKafkaProducer.java
- com.oci.insta.event.BaseKafkaProducer
-com/oci/insta/service/ReviewService.java
- com.oci.insta.service.ReviewService
-com/oci/insta/controller/ReviewController.java
- com.oci.insta.controller.ReviewController
 com/oci/insta/event/ReviewEventProducer.java
  com.oci.insta.event.ReviewEventProducer
+com/oci/insta/entities/common/LatLong.java
+ com.oci.insta.entities.common.LatLong
+com/oci/insta/cache/RedisClient.java
+ com.oci.insta.cache.RedisClient
+com/oci/insta/entities/event/BaseEvent.java
+ com.oci.insta.entities.event.BaseEvent
