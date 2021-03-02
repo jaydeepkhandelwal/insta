@@ -1,0 +1,81 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/insta?useSSL=false&characterEncoding=UTF-8
+    username: root
+    password:
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    validationQuery: SELECT 1
+    testOnBorrow: true
+    initialSize: 10
+    minIdle: 10
+    maxActive: 100
+    maxIdle: 100
+    jpa:
+      #generate-ddl: true #whether to initialize schema on startup
+      hibernate:
+        ddl-auto: none
+      #  batch:
+      #    size: 20
+      #current:
+      #  session:
+      #    context:
+      #      class: org.springframework.orm.hibernate5.SpringSessionContext
+      #dialect:
+        #storage: innodb
+      show_sql: true
+      #naming:
+      #  physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #mode: validate
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 469473040760-phk9fg9mgnn15tgsk60iu2pdi2s1i25q.apps.googleusercontent.com
+            clientSecret: deWTlm05zU29lRmhDM5O5CYq
+            redirect-uri: http://localhost:8090/oauth2/callback/google
+            scope: email,profile
+config:
+  redisConfig:
+    host: redis://127.0.0.1
+    port: 6379
+    db: 0
+    testOnBorrow: true
+    maxTotal: 10
+  otpConfig:
+    authenticationKey: xxxx
+    sender: xxxx
+    otpExpiryMs: 300000
+  fileStorage:
+    dirPath: /tmp/upload/
+
+logging:
+#  config: classpath:logback-spring.xml
+  file: /var/log/insta.log
+  level:
+    com:
+      bb: DEBUG
+    org:
+      hibernate: INFO
+      springframework:
+        web: INFO
+        web.filter.CommonsRequestLoggingFilter: DEBUG
+        cache: INFO
+  pattern:
+    level: '[requestId: %X{requestId}] %5p:%L'
+
+server:
+  port: 8090
+app:
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the client in the /oauth2/authorize request.
+    authorizedRedirectUris: http://localhost:8090/auth/redirect

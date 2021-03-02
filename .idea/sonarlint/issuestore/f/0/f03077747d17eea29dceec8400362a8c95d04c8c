@@ -1,0 +1,14 @@
+
+X
+java:S19059"6Remove this unnecessary cast to "HttpServletResponse".(ôÚº˜øÿÿÿÿ8ÄŒÇ™ÿ.
+X
+java:S1905e"6Remove this unnecessary cast to "HttpServletResponse".(ôÚº˜øÿÿÿÿ8ÄŒÇ™ÿ.
+Z
+java:S14819"8Remove this unused "httpServletResponse" local variable.(ôÚº˜øÿÿÿÿ8ÄŒÇ™ÿ.
+I
+java:S1612R",Replace this lambda with a method reference.(§â…•8ÄŒÇ™ÿ.
+i
+java:S18549"GRemove this useless assignment to local variable "httpServletResponse".(ôÚº˜øÿÿÿÿ8ÄŒÇ™ÿ.
+X	java:S125>"<This block of commented-out lines of code should be removed.(Êþÿò8ÄŒÇ™ÿ.
+T
+java:S25893"7Remove this expression which always evaluates to "true"(Í²È­8ÄŒÇ™ÿ.

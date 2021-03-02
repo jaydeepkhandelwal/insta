@@ -1,0 +1,13 @@
+
+\
+java:S1128"ARemove this unused import 'javax.validation.constraints.NotNull'.(áç¥ãüÿÿÿÿ
+\
+java:S1128	"?Remove this unused import 'com.oci.insta.service.MediaService'.(´çûÒ8¥œü™ÿ.
+n
+java:S1128"LRemove this unused import 'org.springframework.web.multipart.MultipartFile'.(ôŸœÿÿÿÿÿ8ÿÁû™ÿ.
+g
+java:S1128"QRemove this unused import 'com.oci.insta.entities.dto.JwtAuthenticationResponse'.(àŒº°
+œ
+java:S1130,"Remove the declaration of thrown exception 'com.oci.insta.exception.InstaException', as it cannot be thrown from method's body.(äù¨æ8ÑÓı™ÿ.
+Z
+java:S1128"DRemove this unused import 'com.oci.insta.entities.dto.LoginRequest'.(ã©
