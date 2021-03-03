@@ -12,22 +12,32 @@ The objective of this project is to develop a media sharing Service with followi
 ### How to Run on local (Mac)
 
 1. Install Kafka and Zookeeper. You can follow this -
+   
    https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273
    
 2. Install Redis
+   
    brew update
+   
    brew install redis
+   
    brew services start redis
 
 3. Install Mysql (8.x.x)
+   
    brew install mysql
+   
    brew services start mysql
    
 4. build jar
+   
    ./gradlew build
   
 5  Run
-  java -jar build/libs/insta-0.0.1-SNAPSHOT.jar
+
+  java -jar build/libs/insta-0.0.1-SNAPSHOT.jar  
+
+Optionally, You can set java flags like xmx, xms etc.
 
 Alternatively, in future, all these dependencies can be mentioned in
 DockerFile which can be used to create Docker Image. 
