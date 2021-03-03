@@ -9,7 +9,7 @@ The objective of this project is to develop a media sharing Service with followi
 * Users should be able to review pictures with a score from 1 to 5 (but not theirs)
 * Users should be able to see the average of reviews for all pictures
 
-##### How to Run on local (Mac)
+### How to Run on local (Mac)
 
 1. Install Kafka and Zookeeper. You can follow this -
    https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273
