@@ -92,10 +92,20 @@ Cache Entites -
       private Date issuedAt;
    
       private Date expiresAt;   
-    }
+    } 
 
+DB entities are mentioned in app.sql under resources.
 
-
+### Main Classes 
+1. Auth Service - Its responsibility is to handle auth related use-cases e.g signIn, Registration, OTP handling.
+2. Media Service - It handles use-cases related to Media e.g upload, delete.
+3. Review Service - It handles review related use-cases.
+4. Storage - It's an interface which needs to be implemented based on Storage location. I've implemented LocalFileStorage.
+5. JwtAuthenticationFilter - Every api call goes through this request Filter. It does token validation.
+6. JwtTokenUtil - Util to generate JWT Token.
+7. RedisClient - To instantiate RedisClient.
+8. BaseCacheImpl - Base cache class having generic functions like put,get. Other classes are extending it.
+9. ReviewEventProducer - Kakfa Producer class for Review Event. This class can be made generic based on use-case.
 
 ### **APIS** -
 
