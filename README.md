@@ -45,11 +45,18 @@ Run this cmd through mysql-cli.
 **6. Run**
 
     java -jar build/libs/insta-0.0.1-SNAPSHOT.jar  
-
 Optionally, You can set java flags like xmx, xms etc.
+
+
+**7. Access APIS**
+
+Open Swagger to access API doc directly from browser -
+   http://localhost:8090/swagger-ui.html
+
 
 Alternatively, in future, all these dependencies can be mentioned in
 DockerFile which can be used to create Docker Image.
+
 
 ### **Tech Stack -**
 
