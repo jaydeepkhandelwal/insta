@@ -48,6 +48,12 @@ Following tech choices were made during development of this project -
    ![Alt text](src/main/resources/swagger.png?raw=true "Title")
 
 
+**Assumption**
+1. Mocked SendSMS service which is used to send OTP.
+2. Kept number of properties minimum for now. E.g. Haven't added UserProfile (firstName, LastName etc), tags etc. If required, current schema can be extended to support these.
+   In Review field, we can keep metadata field, Map<String, Object> to add any arbitrary data if required in future. We can follow CQRS pattern if we need filters/aggregation on review metadata.
+  
+
 **Entities** -
 
 Cache Entites - 
