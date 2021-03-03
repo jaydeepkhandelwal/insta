@@ -28,27 +28,30 @@ The objective of this project is to develop a media sharing Service with followi
     brew install mysql
    
     brew services start mysql
+replace existing credentials in application.yml with your mysql credentials.
+
+
+**4. Create DB**
+
+Run this cmd through mysql-cli.
+
+      create database insta;
+
    
-**4. build jar**
+**5. build jar**
    
     ./gradlew build
   
-**5. Run**
+**6. Run**
 
     java -jar build/libs/insta-0.0.1-SNAPSHOT.jar  
 
 Optionally, You can set java flags like xmx, xms etc.
 
 Alternatively, in future, all these dependencies can be mentioned in
-DockerFile which can be used to create Docker Image. 
+DockerFile which can be used to create Docker Image.
 
-
-
-
-
-
-
-**Tech Stack -**
+### **Tech Stack -**
 
 Following tech choices were made during development of this project -
 
@@ -82,14 +85,13 @@ Following tech choices were made during development of this project -
 
    ![Alt text](src/main/resources/swagger.png?raw=true "Title")
 
-
-**Assumption**
+### **Assumption**
 1. Mocked SendSMS service which is used to send OTP.
 2. Kept number of properties minimum for now. E.g. Haven't added UserProfile (firstName, LastName etc), tags etc. If required, current schema can be extended to support these.
    In Review field, we can keep metadata field, Map<String, Object> to add any arbitrary data if required in future. We can follow CQRS pattern if we need filters/aggregation on review metadata.
 3. Null Checks and transactions (e.g one place, I am sending data to DB and Kafka both but haven't handled case where one of this fails) are not done every where as it was built for demo purpose.
 
-**Entities** -
+### **Entities** -
 
 Cache Entites - 
 
@@ -277,7 +279,7 @@ Response Body -
 
 3)  400 (Bad Request) will be thrown if user is trying to delete the media which doesn't belong to him.
 
-#### **Future Scope -**
+### **Future Scope -**
 
 1) In order to serve use-case like showing average reviews etc, an aggregation pipeline can be built. 
    It can run on top of spark and consume review events from Kafka and can save aggregated results in data store.
