@@ -9,6 +9,31 @@ The objective of this project is to develop a media sharing Service with followi
 * Users should be able to review pictures with a score from 1 to 5 (but not theirs)
 * Users should be able to see the average of reviews for all pictures
 
+##### How to Run on local (Mac)
+
+1. Install Kafka and Zookeeper. You can follow this -
+   https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273
+   
+2. Install Redis
+   brew update
+   brew install redis
+   brew services start redis
+
+3. Install Mysql (8.x.x)
+   brew install mysql
+   brew services start mysql
+   
+4. build jar
+   ./gradlew build
+  
+5  Run
+  java -jar build/libs/insta-0.0.1-SNAPSHOT.jar
+
+Alternatively, in future, all these dependencies can be mentioned in
+DockerFile which can be used to create Docker Image. 
+
+
+
 
 
 
